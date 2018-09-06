@@ -3,6 +3,7 @@ page 123456706 "CSD Seminar Comment Sheet"
     Caption = 'Seminar Comment Sheet';
     PageType = Card;
     SourceTable = "CSD Seminar Comment Line";
+    AutoSplitKey = true;
 
     layout
     {
@@ -10,17 +11,22 @@ page 123456706 "CSD Seminar Comment Sheet"
         {
             group(GroupName)
             {
-                field(Date;Date)
+                field(Date; Date)
                 { }
 
-                field(Code;Code)
+                field(Code; Code)
                 {
                     Visible = false;
                 }
 
-                field(Comment;Comment)
+                field(Comment; Comment)
                 { }
             }
         }
     }
+
+    trigger OnNewRecord(BelowxRec: Boolean)
+    begin
+        SetupNewLine();
+    end;
 }

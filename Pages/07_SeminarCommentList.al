@@ -1,6 +1,6 @@
 page 123456707 "CSD Seminar Comment List"
 {
-    Caption = 'CSD Seminar Comment List';
+    Caption = 'Seminar Comment List';
     PageType = Card;
     SourceTable = "CSD Seminar Comment Line";
     Editable = false;
@@ -24,7 +24,4 @@ page 123456707 "CSD Seminar Comment List"
             }
         }
     }
-    
-    var
-        myInt : Integer;
 }

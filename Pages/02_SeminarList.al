@@ -2,7 +2,7 @@ page 123456702 "CSD Seminar List"
 {
     PageType = List;
     SourceTable = "CSD Seminar";
-    Caption = 'CSD Seminar list';
+    Caption = 'Seminar list';
     Editable = false;
     CardPageId = 123456701;
     UsageCategory = Lists;
@@ -51,9 +51,9 @@ page 123456702 "CSD Seminar List"
             {
                 action("Co&mment")
                 {
-                    // RunObject=page "Seminar Comment Sheet";
-                    // RunPageLink = "Table Name"= const(Seminar),
-                    // "No."=field("No.");
+                    RunObject=page "CSD Seminar Comment Sheet";
+                    RunPageLink = "Table Name"= const(Seminar),"No."=field("No.");
+                    
                     Image = Comment; 
                     Promoted = true; 
                     PromotedIsBig = true;

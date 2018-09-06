@@ -69,7 +69,7 @@ table 123456701 "CSD Seminar"
             Editable = false;
             FieldClass = FlowField;
 
-            //CalcFormula=exist("Seminar Comment Line" where("Table Name"= const("Seminar"), // "No."=Field("No.")));
+            CalcFormula=exist("CSD Seminar Comment Line" where("Table Name"= const("Seminar"),"No."=Field("No.")));
         }
 
         field(100; "Seminar Price"; decimal)

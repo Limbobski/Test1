@@ -1,6 +1,6 @@
 table 123456704 "CSD Seminar Comment Line"
 {
-    Caption = 'CSD Seminar Comment Line';
+    Caption = 'Seminar Comment Line';
     LookupPageId = 123456707;
     DrillDownPageId = 123456707;
     fields

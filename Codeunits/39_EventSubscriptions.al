@@ -44,6 +44,32 @@ codeunit 123456739 EventSubscriptions
                 Insert;
             end;
         end;
+
+        if SeminarLedgerEntry.ReadPermission then begin
+            SeminarLedgerEntry.Reset;
+            SeminarLedgerEntry.SetFilter("Document No.", DocNoFilter);
+            SeminarLedgerEntry.SetFilter("Posting Date", PostingDateFilter);
+            DocNoOfRecords := SeminarLedgerEntry.Count;
+
+            With DocumentEntry do
+            begin
+                if DocNoOfRecords = 0 then
+                    exit;
+
+                if FindLast then
+                    NextEntryNo := "Entry No." + 1
+                else
+                    NextEntryNo := 1;
+
+                Init;
+                "Entry No." := NextEntryNo;
+                "Table ID" := Database::"CSD Seminar Ledger Entry";
+                "Document Type" := 0;
+                "Table Name" := COPYSTR(SeminarLedgerEntry.TableCaption, 1, MAXSTRLEN("Table Name"));
+                "No. of Records" := DocNoOfRecords;
+                Insert;
+            end;
+        end;
     end;
 
     [EventSubscriber(ObjectType::Page, 344, 'OnAfterNavigateShowRecords', '', true, true)]
